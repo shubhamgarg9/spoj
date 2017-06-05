@@ -1,35 +1,32 @@
-#include<iostream>
-#include<stdio.h>
-#include<math.h>
-using namespace std;
-
-long gcd(long a,long b){
-	if (b==0)
-		return a;
-	else
-		return gcd(b,a%b);
-}
-
+# include <stdio.h>
+# define max 2147483647
 int main()
 {
-	long t,a,b,k;
-	scanf("%ld",&t);
-	for(int i=1;i<=t;i++)
-	{
-		long ans = 0;
-		scanf("%ld%ld",&a,&b);
-		k=gcd(a,b);
-		float q=sqrt(k);
-		for(long j=1;j<=q;j++)
-		{
-			if(k%j==0){
-				ans+=2;
-				if (j==k/j)
-					ans--;
-			}
-		}
-		printf("%ld\n",ans);
-	}
-	return 0;
+int no,color[105][105],smoke[105][105],s[105][105];
+while(scanf("%d",&no)!=EOF)
+{
+int i,k,j,l,temp;
+for(i=0;i<no;i++)
+{
+scanf("%d",&color[i][i]);
 }
-
+for(l=2;l<=no;l++)
+for(i=0;i<no-l+1;i++)
+{
+j=i+l-1;
+int min = max;
+for(k=i;k<=j-1;k++)
+{
+temp = smoke[i][k] + smoke[k+1][j] + color[i][k]*color[k+1][j];
+if(temp<min)
+{
+color[i][j]= (color[i][k] + color[k+1][j])%100;
+min = temp;
+smoke[i][j] = min ;
+}
+}
+}
+int ans;
+printf("%d\n",smoke[0][no-1]);
+}
+}

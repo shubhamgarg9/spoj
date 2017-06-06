@@ -1,16 +1,21 @@
 #include<iostream>
+#include<queue>
+
 using namespace std;
+int ar[10000];
+void sieve()
+{
+	for(int i=2;i<=100;i++)
+	for(int j=2*i;j<=10000;j+=i)
+		ar[j] = 1;
+}
+
 int main()
 {
-	int *ar = new int[3];
-	ar[0] =1;
-	ar[1] = 2;
-	ar[2] = 3;
-	int *ar2 = ar;
-	ar2[1] = 9;
-	for(int i=0;i<3;i++)
-		cout<<ar[i];
-	for(int i=0;i<3;i++)
-		cout<<ar2[i];
+
+	sieve();
+	for(int i=1000;i<10000;i++)
+		if(!ar[i])
+			cout<<i<<'\t';
 	return 0;
 }

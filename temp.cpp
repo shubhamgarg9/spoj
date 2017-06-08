@@ -1,16 +1,13 @@
 #include<iostream>
-#include<cmath>
-
 using namespace std;
 int main()
 {
-	for(int i=0;;i++)
+	int ar[8] = {1,5,4,2,6,5,3,2};
+	int t = ar[0];
+	for(int i=1;i<8;i++)
 	{
-		if(pow(2,i)>=99000000)
-		{
-			cout<<i<<'\n';
-			break;
-		}
+		t = t^ar[i];
+		cout<<t<<'\n';
 	}
 	return 0;
 }

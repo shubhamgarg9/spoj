@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 #define ull long long
-
+/* Nice code bro #hacktoberfest :) */
 int ar[100000];
 int sieve(){
 	ar[0] = 2;
